@@ -1470,8 +1470,17 @@ SimpleMDE.prototype.render = function(el) {
 		backdrop.name = "gfm";
 		backdrop.gitHubSpice = false;
 
+
+		if(typeof options.customDict == 'undefined') {
+			options.customDict = {
+				dic: "https://github.com/titoBouzout/Dictionaries/blob/master/English (American).dic",
+				aff: "https://github.com/titoBouzout/Dictionaries/blob/master/English (American).aff"
+			}
+		}
+
 		CodeMirrorSpellChecker({
-			codeMirrorInstance: CodeMirror
+			codeMirrorInstance: CodeMirror,
+			customDict: options.customDict
 		});
 	} else {
 		mode = options.parsingConfig;
